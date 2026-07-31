@@ -150,8 +150,11 @@ img{max-width:100%;display:block}
   border:1px solid var(--line);border-radius:16px;padding:14px 20px;
   box-shadow:0 24px 50px -22px rgba(0,0,0,.9);
 }
-.badge b{display:block;font-family:'Frank Ruhl Libre',serif;font-size:24px;color:var(--gold-lt);line-height:1.1}
-.badge small{font-size:13px;color:var(--cream-dim);letter-spacing:.04em}
+/* שתי השורות באותו גודל בדיוק — לא כותרת ותת-כותרת */
+.badge b,.badge small{
+  display:block;font-family:'Frank Ruhl Libre',serif;font-size:24px;font-weight:700;
+  color:var(--gold-lt);line-height:1.28;letter-spacing:0;
+}
 
 /* trust strip */
 .trust{border-block:1px solid var(--line);background:rgba(255,255,255,.018)}
@@ -376,8 +379,8 @@ footer{padding:52px 0 56px;border-top:1px solid var(--line);font-size:15px;color
         </picture>
       </div>
       <div class="badge">
-        <b>מאות</b>
-        <small>אנשים שכבר עברו את התהליך</small>
+        <b>מאות אנשים</b>
+        <small>שכבר עברו את התהליך</small>
       </div>
     </div>
   </div>
