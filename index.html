@@ -186,6 +186,17 @@ img{max-width:100%;display:block}
   line-height:1.45;max-width:26ch;
 }
 
+/* ---------- emblem ---------- */
+.emblem{
+  width:min(230px,56vw);margin:44px auto 8px;display:block;position:relative;
+}
+.emblem::before{
+  content:"";position:absolute;inset:-18%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(214,180,106,.16),transparent 70%);
+  filter:blur(14px);
+}
+.emblem img{width:100%;height:auto;display:block;position:relative}
+
 /* ---------- method cards ---------- */
 .cards{display:grid;grid-template-columns:1fr 1fr;gap:26px;margin-top:52px}
 .card{
@@ -286,6 +297,81 @@ summary::after{
 details[open] summary::after{transform:translateY(-50%) rotate(45deg)}
 details p{color:var(--cream-dim);font-size:17px;margin:0 0 22px;padding-inline-end:40px}
 
+/* ---------- source / book ---------- */
+.source{background:linear-gradient(180deg,var(--ink),#1a1322 55%,var(--ink))}
+.source-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+
+.book-wrap{justify-self:center;perspective:1400px;width:100%;max-width:340px}
+.book{
+  position:relative;aspect-ratio:1/1.42;
+  transform:rotateY(-14deg) rotateX(3deg);transform-style:preserve-3d;
+  transition:transform .8s cubic-bezier(.2,.8,.3,1);
+}
+.source-grid:hover .book{transform:rotateY(-8deg) rotateX(1deg)}
+.book-glow{
+  position:absolute;inset:-16% -14%;border-radius:50%;
+  background:radial-gradient(closest-side,rgba(214,180,106,.26),transparent 72%);
+  filter:blur(20px);
+}
+.book-cover{
+  position:absolute;inset:0;border-radius:5px 12px 12px 5px;
+  background:
+    radial-gradient(120% 90% at 78% 12%,rgba(214,180,106,.14),transparent 58%),
+    linear-gradient(155deg,#4a2130,#2d1420 48%,#1d0e16);
+  box-shadow:
+    0 42px 70px -26px rgba(0,0,0,.95),
+    inset 0 0 0 1px rgba(214,180,106,.28),
+    inset -14px 0 26px -14px rgba(0,0,0,.75);
+  display:flex;align-items:center;justify-content:center;padding:11%;
+}
+/* ספר עברי — הכריכה בצד ימין, דפים נראים משמאל */
+.book-spine{
+  position:absolute;inset-block:0;right:0;width:15px;border-radius:0 12px 12px 0;
+  background:linear-gradient(90deg,rgba(0,0,0,.55),rgba(214,180,106,.22),rgba(0,0,0,.5));
+}
+.book-pages{
+  position:absolute;inset-block:2.5%;left:-9px;width:10px;border-radius:4px 0 0 4px;
+  background:repeating-linear-gradient(180deg,#e8e0d2 0 2px,#c3b8a5 2px 3px);
+  box-shadow:-2px 0 8px rgba(0,0,0,.5);
+}
+.book-frame{
+  width:100%;height:100%;border:1px solid rgba(214,180,106,.5);border-radius:3px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:14px;padding:10% 8%;text-align:center;
+  box-shadow:inset 0 0 0 4px rgba(214,180,106,.12);
+}
+.book-orn{
+  font-size:19px;letter-spacing:.5em;text-indent:.5em;
+  color:var(--gold);opacity:.85;line-height:1;
+}
+.book-frame h3{
+  margin:0;font-size:clamp(21px,2.6vw,29px);line-height:1.28;font-weight:900;
+  background:linear-gradient(160deg,#f6e6bd,#c9a253 60%,#efd9a6);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.book-rule{
+  width:52%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(214,180,106,.75),transparent);
+}
+.book-frame p{
+  margin:0;font-family:'Frank Ruhl Libre',serif;font-size:clamp(13px,1.5vw,16px);
+  color:var(--gold-lt);opacity:.92;letter-spacing:.02em;line-height:1.5;
+}
+.book-cap{
+  margin:26px 0 0;text-align:center;font-size:13.5px;color:var(--cream-dim);
+  opacity:.72;letter-spacing:.04em;
+}
+.source blockquote{
+  margin:30px 0 0;padding:22px 26px;border-radius:16px;
+  border:1px solid var(--line);
+  background:linear-gradient(135deg,rgba(142,43,58,.15),rgba(214,180,106,.05));
+  font-family:'Frank Ruhl Libre',serif;font-size:19px;line-height:1.62;color:var(--cream);
+}
+.source blockquote span{
+  display:block;margin-top:10px;font-family:'Assistant',sans-serif;
+  font-size:14px;color:var(--cream-dim);letter-spacing:.04em;
+}
+
 /* ---------- final cta ---------- */
 .final{
   position:relative;text-align:center;padding:110px 0 120px;overflow:hidden;
@@ -331,7 +417,9 @@ footer{padding:52px 0 56px;border-top:1px solid var(--line);font-size:15px;color
   .hero-grid,.about-grid{grid-template-columns:1fr;gap:48px}
   .hero{padding-top:52px}
   .portrait{order:-1;max-width:340px}
-  .cards,.steps,.foryou,.tms{grid-template-columns:1fr}
+  .cards,.steps,.foryou,.tms,.source-grid{grid-template-columns:1fr}
+  .source-grid{gap:46px}
+  .book-wrap{max-width:270px;order:-1}
   .trust-in{grid-template-columns:1fr 1fr;gap:18px 6px}
   .trust-i:nth-child(3){border:0}
   .sec{padding:74px 0}
@@ -421,6 +509,11 @@ footer{padding:52px 0 56px;border-top:1px solid var(--line);font-size:15px;color
     <p class="eyebrow">שתי שפות, שיחה אחת</p>
     <h2 class="sec-t">איך אני עובדת</h2>
     <p class="lead">חוכמת הפנים אומרת לי מי אתם. NLP עוזר לנו לעשות עם זה משהו. השילוב הוא כל ההבדל.</p>
+
+    <div class="emblem">
+      <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciDQogICAgIGFyaWEtbGFiZWw9IteZ15Mg16TXqteV15fXlCDXnteX15bXmden15Qg16LXmdefINen15XXqNeg16osINeh15TXqCDXldeb15XXm9eR15nXnSwg15XXnteq15fXqteZ15Qg157XktefINeT15XXkyI+DQogIDxkZWZzPg0KICAgIDxyYWRpYWxHcmFkaWVudCBpZD0iZ0hhbG8iIGN4PSI1MCUiIGN5PSI0MiUiIHI9IjUyJSI+DQogICAgICA8c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZDZiNDZhIiBzdG9wLW9wYWNpdHk9Ii4zMCIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZDZiNDZhIiBzdG9wLW9wYWNpdHk9IjAiLz4NCiAgICA8L3JhZGlhbEdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ0dvbGQiIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4NCiAgICAgIDxzdG9wIG9mZnNldD0iMCUiIHN0b3AtY29sb3I9IiNmMmRkYjAiLz4NCiAgICAgIDxzdG9wIG9mZnNldD0iNTUlIiBzdG9wLWNvbG9yPSIjZDZiNDZhIi8+DQogICAgICA8c3RvcCBvZmZzZXQ9IjEwMCUiIHN0b3AtY29sb3I9IiNhODg2M2YiLz4NCiAgICA8L2xpbmVhckdyYWRpZW50Pg0KICAgIDxsaW5lYXJHcmFkaWVudCBpZD0iZ1NraW4iIHgxPSIwIiB5MT0iMCIgeDI9IjAuNCIgeTI9IjEiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2U2YjhhNiIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYzQ4MzZmIi8+DQogICAgPC9saW5lYXJHcmFkaWVudD4NCiAgICA8cmFkaWFsR3JhZGllbnQgaWQ9ImdJcmlzIiBjeD0iNDIlIiBjeT0iMzYlIiByPSI3MCUiPg0KICAgICAgPHN0b3Agb2Zmc2V0PSIwJSIgc3RvcC1jb2xvcj0iI2YyZGRiMCIvPg0KICAgICAgPHN0b3Agb2Zmc2V0PSI2MCUiIHN0b3AtY29sb3I9IiNkOTlmNGEiLz4NCiAgICAgIDxzdG9wIG9mZnNldD0iMTAwJSIgc3RvcC1jb2xvcj0iIzlhNmEyYyIvPg0KICAgIDwvcmFkaWFsR3JhZGllbnQ+DQogIDwvZGVmcz4NCg0KICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxODAiIHI9IjE5NiIgZmlsbD0idXJsKCNnSGFsbykiLz4NCg0KICA8IS0tINen16jXoNeZ15nXnSAtLT4NCiAgPGc+DQogICAgPHBhdGggZD0iTTE5Ny44IDcyLjAgTDIwMC4wIDM4LjAgTDIwMi4yIDcyLjAgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC45NSIvPg0KICAgIDxwYXRoIGQ9Ik0yMTUuMCA3My41IEwyMjAuOSA1NC40IEwyMTguMCA3NC4yIFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuNjAiLz4NCiAgICA8cGF0aCBkPSJNMjMwLjEgNzguNCBMMjQ2LjkgNDguNyBMMjM0LjEgODAuMyBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTI0NC45IDg3LjIgTDI1OC42IDcyLjUgTDI0Ny4zIDg5LjEgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICAgIDxwYXRoIGQ9Ik0yNTYuNSA5OC4yIEwyODQuNCA3OC43IEwyNTkuMiAxMDEuNiBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTI2Ni4wIDExMi41IEwyODQuNyAxMDUuMiBMMjY3LjMgMTE1LjMgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICAgIDxwYXRoIGQ9Ik0yNzEuNiAxMjcuNCBMMzA1LjMgMTIyLjAgTDI3Mi42IDEzMS43IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuOTUiLz4NCiAgICA8cGF0aCBkPSJNMjc0LjAgMTQ0LjUgTDI5NC4wIDE0Ni4wIEwyNzQuMCAxNDcuNSBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjYwIi8+DQogICAgPHBhdGggZD0iTTI3Mi42IDE2MC4zIEwzMDUuMyAxNzAuMCBMMjcxLjYgMTY0LjYgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC45NSIvPg0KICAgIDxwYXRoIGQ9Ik0yNjcuMyAxNzYuNyBMMjg0LjcgMTg2LjggTDI2Ni4wIDE3OS41IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuNjAiLz4NCiAgICA8cGF0aCBkPSJNMjU5LjIgMTkwLjQgTDI4NC40IDIxMy4zIEwyNTYuNSAxOTMuOCBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTI0Ny4zIDIwMi45IEwyNTguNiAyMTkuNSBMMjQ0LjkgMjA0LjggWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICAgIDxwYXRoIGQ9Ik0yMzQuMSAyMTEuNyBMMjQ2LjkgMjQzLjMgTDIzMC4xIDIxMy42IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuOTUiLz4NCiAgICA8cGF0aCBkPSJNMjE4LjAgMjE3LjggTDIyMC45IDIzNy42IEwyMTUuMCAyMTguNSBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjYwIi8+DQogICAgPHBhdGggZD0iTTIwMi4yIDIyMC4wIEwyMDAuMCAyNTQuMCBMMTk3LjggMjIwLjAgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC45NSIvPg0KICAgIDxwYXRoIGQ9Ik0xODUuMCAyMTguNSBMMTc5LjEgMjM3LjYgTDE4Mi4wIDIxNy44IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuNjAiLz4NCiAgICA8cGF0aCBkPSJNMTY5LjkgMjEzLjYgTDE1My4xIDI0My4zIEwxNjUuOSAyMTEuNyBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTE1NS4xIDIwNC44IEwxNDEuNCAyMTkuNSBMMTUyLjcgMjAyLjkgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICAgIDxwYXRoIGQ9Ik0xNDMuNSAxOTMuOCBMMTE1LjYgMjEzLjMgTDE0MC44IDE5MC40IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuOTUiLz4NCiAgICA8cGF0aCBkPSJNMTM0LjAgMTc5LjUgTDExNS4zIDE4Ni44IEwxMzIuNyAxNzYuNyBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjYwIi8+DQogICAgPHBhdGggZD0iTTEyOC40IDE2NC42IEw5NC43IDE3MC4wIEwxMjcuNCAxNjAuMyBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTEyNi4wIDE0Ny41IEwxMDYuMCAxNDYuMCBMMTI2LjAgMTQ0LjUgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICAgIDxwYXRoIGQ9Ik0xMjcuNCAxMzEuNyBMOTQuNyAxMjIuMCBMMTI4LjQgMTI3LjQgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC45NSIvPg0KICAgIDxwYXRoIGQ9Ik0xMzIuNyAxMTUuMyBMMTE1LjMgMTA1LjIgTDEzNC4wIDExMi41IFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuNjAiLz4NCiAgICA8cGF0aCBkPSJNMTQwLjggMTAxLjYgTDExNS42IDc4LjcgTDE0My41IDk4LjIgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC45NSIvPg0KICAgIDxwYXRoIGQ9Ik0xNTIuNyA4OS4xIEwxNDEuNCA3Mi41IEwxNTUuMSA4Ny4yIFoiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9IjAuNjAiLz4NCiAgICA8cGF0aCBkPSJNMTY1LjkgODAuMyBMMTUzLjEgNDguNyBMMTY5LjkgNzguNCBaIiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIwLjk1Ii8+DQogICAgPHBhdGggZD0iTTE4Mi4wIDc0LjIgTDE3OS4xIDU0LjQgTDE4NS4wIDczLjUgWiIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iMC42MCIvPg0KICA8L2c+DQoNCiAgPCEtLSDXodeU16gg4oCUINee15XXodeYINeZ157Xmdeg15Qg15XXnNee16LXnNeUINeb15PXmSDXnNeQINec15LXoteqINeR16LXmdefIC0tPg0KICA8cGF0aCBkPSJNMzMwIDQ0IGE0NiA0NiAwIDEgMCAyNyA3MyBhMzYgMzYgMCAxIDEgLTI3IC03MyBaIg0KICAgICAgICBmaWxsPSJ1cmwoI2dHb2xkKSIgb3BhY2l0eT0iLjkyIi8+DQoNCiAgPCEtLSDXm9eV15vXkdeZ150gLS0+DQogIDxwYXRoIGQ9Ik02NC4wIDgzLjAgQzY3LjQgOTIuNiA2Ny40IDkyLjYgNzcuMCA5Ni4wIEM2Ny40IDk5LjQgNjcuNCA5OS40IDY0LjAgMTA5LjAgQzYwLjYgOTkuNCA2MC42IDk5LjQgNTEuMCA5Ni4wIEM2MC42IDkyLjYgNjAuNiA5Mi42IDY0LjAgODMuMCBaIiBmaWxsPSIjZjJkZGIwIiBvcGFjaXR5PSIxLjAwIi8+DQogIDxwYXRoIGQ9Ik0zNDAuMCAyMjUuMCBDMzQyLjkgMjMzLjEgMzQyLjkgMjMzLjEgMzUxLjAgMjM2LjAgQzM0Mi45IDIzOC45IDM0Mi45IDIzOC45IDM0MC4wIDI0Ny4wIEMzMzcuMSAyMzguOSAzMzcuMSAyMzguOSAzMjkuMCAyMzYuMCBDMzM3LjEgMjMzLjEgMzM3LjEgMjMzLjEgMzQwLjAgMjI1LjAgWiIgZmlsbD0iI2YyZGRiMCIgb3BhY2l0eT0iMC45MCIvPg0KICA8cGF0aCBkPSJNOTYuMCAyMDYuMCBDOTguMSAyMTEuOSA5OC4xIDIxMS45IDEwNC4wIDIxNC4wIEM5OC4xIDIxNi4xIDk4LjEgMjE2LjEgOTYuMCAyMjIuMCBDOTMuOSAyMTYuMSA5My45IDIxNi4xIDg4LjAgMjE0LjAgQzkzLjkgMjExLjkgOTMuOSAyMTEuOSA5Ni4wIDIwNi4wIFoiIGZpbGw9IiNmMmRkYjAiIG9wYWNpdHk9IjAuODAiLz4NCiAgPHBhdGggZD0iTTMwMC4wIDMxLjAgQzMwMi4zIDM3LjcgMzAyLjMgMzcuNyAzMDkuMCA0MC4wIEMzMDIuMyA0Mi4zIDMwMi4zIDQyLjMgMzAwLjAgNDkuMCBDMjk3LjcgNDIuMyAyOTcuNyA0Mi4zIDI5MS4wIDQwLjAgQzI5Ny43IDM3LjcgMjk3LjcgMzcuNyAzMDAuMCAzMS4wIFoiIGZpbGw9IiNmMmRkYjAiIG9wYWNpdHk9IjAuODUiLz4NCiAgPHBhdGggZD0iTTQ2LjAgMTYyLjAgQzQ3LjYgMTY2LjQgNDcuNiAxNjYuNCA1Mi4wIDE2OC4wIEM0Ny42IDE2OS42IDQ3LjYgMTY5LjYgNDYuMCAxNzQuMCBDNDQuNCAxNjkuNiA0NC40IDE2OS42IDQwLjAgMTY4LjAgQzQ0LjQgMTY2LjQgNDQuNCAxNjYuNCA0Ni4wIDE2Mi4wIFoiIGZpbGw9IiNmMmRkYjAiIG9wYWNpdHk9IjAuNzAiLz4NCiAgPHBhdGggZD0iTTM2MC4wIDEzMy4wIEMzNjEuOCAxMzguMiAzNjEuOCAxMzguMiAzNjcuMCAxNDAuMCBDMzYxLjggMTQxLjggMzYxLjggMTQxLjggMzYwLjAgMTQ3LjAgQzM1OC4yIDE0MS44IDM1OC4yIDE0MS44IDM1My4wIDE0MC4wIEMzNTguMiAxMzguMiAzNTguMiAxMzguMiAzNjAuMCAxMzMuMCBaIiBmaWxsPSIjZjJkZGIwIiBvcGFjaXR5PSIwLjc1Ii8+DQogIDxwYXRoIGQ9Ik0xMjguMCAzNy4wIEMxMjkuOCA0Mi4yIDEyOS44IDQyLjIgMTM1LjAgNDQuMCBDMTI5LjggNDUuOCAxMjkuOCA0NS44IDEyOC4wIDUxLjAgQzEyNi4yIDQ1LjggMTI2LjIgNDUuOCAxMjEuMCA0NC4wIEMxMjYuMiA0Mi4yIDEyNi4yIDQyLjIgMTI4LjAgMzcuMCBaIiBmaWxsPSIjZjJkZGIwIiBvcGFjaXR5PSIwLjcwIi8+DQogIDxwYXRoIGQ9Ik0yNTIuMCAyMC4wIEMyNTMuNiAyNC40IDI1My42IDI0LjQgMjU4LjAgMjYuMCBDMjUzLjYgMjcuNiAyNTMuNiAyNy42IDI1Mi4wIDMyLjAgQzI1MC40IDI3LjYgMjUwLjQgMjcuNiAyNDYuMCAyNi4wIEMyNTAuNCAyNC40IDI1MC40IDI0LjQgMjUyLjAgMjAuMCBaIiBmaWxsPSIjZjJkZGIwIiBvcGFjaXR5PSIwLjY1Ii8+DQoNCiAgPCEtLSDXl9eo15XXlteZ150g157Xqdeg15kg16bXmdeT15kg15TXoteZ158gLS0+DQogIDxjaXJjbGUgY3g9IjExNC4wIiBjeT0iMTQ2LjAiIHI9IjUuNCIgZmlsbD0iI2Q2YjQ2YSIgb3BhY2l0eT0iLjg1Ii8+DQogIDxjaXJjbGUgY3g9Ijk5LjAiIGN5PSIxNDkuNSIgcj0iNC40IiBmaWxsPSIjZDZiNDZhIiBvcGFjaXR5PSIuODUiLz4NCiAgPGNpcmNsZSBjeD0iODQuMCIgY3k9IjE1My4wIiByPSIzLjQiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9Ii44NSIvPg0KICA8Y2lyY2xlIGN4PSIyODYuMCIgY3k9IjE0Ni4wIiByPSI1LjQiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9Ii44NSIvPg0KICA8Y2lyY2xlIGN4PSIzMDEuMCIgY3k9IjE0OS41IiByPSI0LjQiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9Ii44NSIvPg0KICA8Y2lyY2xlIGN4PSIzMTYuMCIgY3k9IjE1My4wIiByPSIzLjQiIGZpbGw9IiNkNmI0NmEiIG9wYWNpdHk9Ii44NSIvPg0KDQogIDwhLS0g15TXoteZ158gLS0+DQogIDxnPg0KICAgIDxwYXRoIGQ9Ik0xMzQuMCAxNDYuMCBRMjAwIDg4LjAgMjY2LjAgMTQ2LjAgUTIwMCAyMDQuMCAxMzQuMCAxNDYuMCBaIg0KICAgICAgICAgIGZpbGw9IiNmN2VjZDMiIHN0cm9rZT0idXJsKCNnR29sZCkiIHN0cm9rZS13aWR0aD0iMy41Ig0KICAgICAgICAgIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4NCiAgICA8Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNDYuMCIgcj0iMjciIGZpbGw9InVybCgjZ0lyaXMpIi8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMTQ2LjAiIHI9IjEyLjUiIGZpbGw9IiMyYTFhMTIiLz4NCiAgICA8Y2lyY2xlIGN4PSIxOTEiIGN5PSIxMzcuMCIgcj0iNi4yIiBmaWxsPSIjZmZmYWYwIi8+DQogIDwvZz4NCg0KICA8IS0tINeZ15Mg16TXqteV15fXlCDigJQg15vXoyDXlNeZ15Mg16DXldep15DXqiDXkNeqINee15LXnyDXlNeT15XXkywg15vXnteVINeX157XodeUIC0tPg0KICA8Zz4NCiAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSgtNTQuMCAxMzIuNSAzMTIuMCkiPjxyZWN0IHg9IjExOC4wIiB5PSIyMzguMCIgd2lkdGg9IjI5LjAiIGhlaWdodD0iNzQuMCIgcng9IjE0LjUiIGZpbGw9InVybCgjZ1NraW4pIi8+PC9nPg0KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKC05LjAgMTcwLjUgMzIyLjApIj48cmVjdCB4PSIxNTcuMCIgeT0iMjE2LjAiIHdpZHRoPSIyNy4wIiBoZWlnaHQ9IjEwNi4wIiByeD0iMTMuNSIgZmlsbD0idXJsKCNnU2tpbikiLz48L2c+DQogICAgPGcgdHJhbnNmb3JtPSJyb3RhdGUoMC4wIDIwMC4wIDMyMi4wKSI+PHJlY3QgeD0iMTg2LjAiIHk9IjIwOC4wIiB3aWR0aD0iMjguMCIgaGVpZ2h0PSIxMTQuMCIgcng9IjE0LjAiIGZpbGw9InVybCgjZ1NraW4pIi8+PC9nPg0KICAgIDxnIHRyYW5zZm9ybT0icm90YXRlKDkuMCAyMjkuNSAzMjIuMCkiPjxyZWN0IHg9IjIxNi4wIiB5PSIyMTYuMCIgd2lkdGg9IjI3LjAiIGhlaWdodD0iMTA2LjAiIHJ4PSIxMy41IiBmaWxsPSJ1cmwoI2dTa2luKSIvPjwvZz4NCiAgICA8ZyB0cmFuc2Zvcm09InJvdGF0ZSg1NC4wIDI2Ny41IDMxMi4wKSI+PHJlY3QgeD0iMjUzLjAiIHk9IjIzOC4wIiB3aWR0aD0iMjkuMCIgaGVpZ2h0PSI3NC4wIiByeD0iMTQuNSIgZmlsbD0idXJsKCNnU2tpbikiLz48L2c+DQogICAgPHBhdGggZD0iTTEyNCAyOTYgQzEyNCAyNjggMjc2IDI2OCAyNzYgMjk2DQogICAgICAgICAgICAgQzI3NiAzNTIgMjQyIDM3OCAyMDAgMzc4DQogICAgICAgICAgICAgQzE1OCAzNzggMTI0IDM1MiAxMjQgMjk2IFoiIGZpbGw9InVybCgjZ1NraW4pIi8+DQogICAgPGNpcmNsZSBjeD0iMjAwIiBjeT0iMzI2IiByPSI0NyIgZmlsbD0iIzhhNTE0MiIgb3BhY2l0eT0iLjMwIi8+DQogIDwvZz4NCg0KICA8IS0tINee15LXnyDXk9eV15Mg16LXnCDXm9ejINeU15nXkyAtLT4NCiAgPGcgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2dHb2xkKSIgc3Ryb2tlLXdpZHRoPSI3LjUiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPg0KICAgICAgPHBvbHlnb24gcG9pbnRzPSIyMDAuMCAyODcuMCAxNjguMCAzNDIuNSAyMzIuMCAzNDIuNSIvPg0KICAgICAgPHBvbHlnb24gcG9pbnRzPSIyMDAuMCAzNjEuMCAxNjguMCAzMDUuNSAyMzIuMCAzMDUuNSIvPg0KICAgIDwvZz4NCjwvc3ZnPg0K" width="400" height="400" loading="lazy"
+           alt="חמסה ובתוכה מגן דוד, ומעליה עין קורנת מוקפת קרניים, סהר וכוכבים">
+    </div>
 
     <div class="cards">
       <div class="card">
@@ -600,6 +693,54 @@ footer{padding:52px 0 56px;border-top:1px solid var(--line);font-size:15px;color
         <summary>איך קובעים?</summary>
         <p>מחייגים ל-053-3017494 או שולחים הודעה בוואטסאפ. אני חוזרת אישית לכל פנייה, ובשיחה קצרה נבין ביחד אם זה מתאים לכם עכשיו.</p>
       </details>
+    </div>
+  </div>
+</section>
+
+<!--
+  ================= המקור =================
+  הספר מצויר ב-CSS, לא תמונה — אין קובץ, אין זכויות יוצרים, ונראה חד בכל מסך.
+  חשוב: הוא ממוסגר כאיור של המסורת, לא כספר שרות כתבה או מוכרת.
+  הכיתוב "איור להמחשה" חייב להישאר כל עוד אין ספר אמיתי.
+-->
+<section class="sec source">
+  <div class="wrap source-grid rv">
+    <div>
+      <div class="book-wrap">
+        <div class="book">
+          <div class="book-glow"></div>
+          <div class="book-pages"></div>
+          <div class="book-cover">
+            <div class="book-frame">
+              <span class="book-orn">✦ ✦ ✦</span>
+              <h3>סוד<br>חוכמת הפנים</h3>
+              <div class="book-rule"></div>
+              <p>לאור חכמת הקבלה</p>
+            </div>
+          </div>
+          <div class="book-spine"></div>
+        </div>
+      </div>
+      <p class="book-cap">איור להמחשה</p>
+    </div>
+
+    <div>
+      <p class="eyebrow">מאיפה זה מגיע</p>
+      <h2 class="sec-t">לא טרנד.<br>מסורת בת מאות שנים.</h2>
+      <p class="lead">
+        קריאה בפנים היא לא המצאה חדשה ולא אופנה שעברה כאן לפני עשור.
+        היא מופיעה כבר בזוהר, בשם <strong>חכמת הפרצוף</strong> —
+        התפיסה שפניו של אדם מעידות על עולמו הפנימי, ושמי שיודע להסתכל, רואה.
+      </p>
+      <p class="lead">
+        מהמקום הזה אני מגיעה. עליו הוספתי הכשרות עומק וכלים של ימינו,
+        כדי שלא תישארו רק עם הבנה יפה — אלא תדעו גם מה עושים איתה.
+      </p>
+
+      <blockquote>
+        בסוף, כל מה שקורה בפנים — נרשם על הפנים.
+        <span>רות אמסלם</span>
+      </blockquote>
     </div>
   </div>
 </section>
