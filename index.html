@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>רות אמסלם — קריאת פנים וחכמת הפרצוף</title>
-<meta name="description" content="רות אמסלם — קריאת פנים, חכמת הפרצוף וליווי אישי ברוח היהדות. נצר לשושלת רבנים מיוחסת. לקביעת שיחת ייעוץ: 053-3017494">
-<meta property="og:title" content="רות אמסלם | קריאת פנים וחכמת הפרצוף">
-<meta property="og:description" content="הפנים שלכם מספרות סיפור. קריאת פנים וליווי אישי ברוח היהדות, נצר לשושלת רבנים מיוחסת. לקביעת שיחת ייעוץ: 053-3017494">
+<title>רות אמסלם — קריאת פנים, חכמת הפרצוף וטיפול NLP</title>
+<meta name="description" content="רות אמסלם — קריאת פנים, חכמת הפרצוף וטיפול NLP מאסטר ברוח היהדות. נצר לשושלת רבנים מיוחסת. פגישות בקליניקה או בזום. לקביעת שיחת ייעוץ: 053-3017494">
+<meta property="og:title" content="רות אמסלם | חכמת הפרצוף וטיפול NLP מאסטר">
+<meta property="og:description" content="הפנים שלכם מספרות סיפור. קריאת פנים וטיפול NLP מאסטר ברוח היהדות, נצר לשושלת רבנים מיוחסת. בקליניקה או בזום. לקביעת שיחת ייעוץ: 053-3017494">
 <meta property="og:image" content="https://diklaamlaw-cmyk.github.io/ruth-amsalem-lp/assets/ruth-square.jpg">
 <meta property="og:image:width" content="900">
 <meta property="og:image:height" content="924">
@@ -122,12 +122,27 @@ section{padding:96px 0}
 
 /* services */
 .services{background:var(--cream)}
-.svc{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.svc{display:grid;grid-template-columns:repeat(2,1fr);gap:40px 24px;max-width:900px;margin-inline:auto}
 .svc .card{padding-top:44px;display:flex;flex-direction:column}
 .svc .num{position:absolute;top:-22px;inset-inline-start:28px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,#e6c77d,#c99a3c);color:var(--night);font-family:'Rubik';font-weight:700;font-size:20px;display:grid;place-items:center}
 .svc ul{list-style:none;margin-top:16px;display:grid;gap:8px}
 .svc li{position:relative;padding-inline-start:24px;font-size:17px;color:var(--ink);line-height:1.55}
 .svc li:before{content:"✦";position:absolute;inset-inline-start:0;top:0;color:#b8913d;font-size:14px}
+
+/* testimonials */
+.tms-sec{background:var(--night);color:var(--on-night);position:relative;overflow:hidden}
+.tms-sec .tree{position:absolute;inset-inline-start:-140px;top:-40px;width:480px;opacity:.06;pointer-events:none}
+.tms-sec .sec-head h2{color:#fff}
+.tms-sec .sec-head .eyebrow{color:var(--gold)}
+.tms-sec .sec-head p{color:var(--on-night-muted)}
+.tms{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;max-width:960px;margin:0 auto;position:relative;z-index:2}
+.tm{border:1px solid rgba(212,174,92,.32);border-radius:var(--r);padding:30px 30px 24px;background:rgba(255,255,255,.035);position:relative}
+.tm:before{content:"״";position:absolute;top:6px;inset-inline-start:24px;font-family:'Rubik';font-size:60px;line-height:1;color:var(--gold);opacity:.55}
+.tm p{font-size:19px;color:var(--on-night);margin:24px 0 16px}
+.tm cite{font-style:normal;font-family:'Rubik';font-weight:600;color:var(--gold-soft);font-size:17px}
+.tm cite span{color:var(--on-night-muted);font-weight:400;font-size:15px}
+.tm cite span:before{content:" · "}
+.cta-note{font-size:16px;color:var(--on-night-muted);margin:-16px 0 26px}
 
 /* steps */
 .steps{background:linear-gradient(180deg,var(--cream),var(--cream2))}
@@ -183,7 +198,7 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
   .cta-row{justify-content:center}
   .verse{justify-content:center}
   .verse:before{display:none}
-  .cards,.svc,.pillars{grid-template-columns:1fr}
+  .cards,.svc,.pillars,.tms{grid-template-columns:1fr}
   .svc{gap:40px}
   .about-grid{grid-template-columns:1fr;gap:40px}
   .photo-stack{height:420px;max-width:420px;margin:0 auto;width:100%}
@@ -226,7 +241,7 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
   <div class="wrap">
     <div class="brand">
       <div class="name">רות אמסלם</div>
-      <div class="tag">קריאת פנים · חכמת הפרצוף</div>
+      <div class="tag">חכמת הפרצוף · טיפול NLP מאסטר</div>
       <svg class="orn" aria-hidden="true"><use href="#orn"/></svg>
     </div>
 
@@ -234,11 +249,12 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
       <div class="hero-text">
         <span class="eyebrow">חכמת הפרצוף, ברוח היהדות וחכמת הקבלה</span>
         <h1>הפנים שלכם מספרות סיפור. <em>אני יודעת לקרוא אותו.</em></h1>
-        <p class="lead">אני רות אמסלם, קוראת פנים ומלווה, נצר לשושלת רבנים מיוחסת. במפגש אישי אני מחברת בין חכמה יהודית עתיקה לבין מה שעובר עליכם היום, כדי שתראו את עצמכם בבהירות ותדעו לאן להמשיך.</p>
+        <p class="lead">אני רות אמסלם, קוראת פנים ומטפלת NLP מאסטר, נצר לשושלת רבנים מיוחסת. במפגש אישי אני מחברת בין חכמה יהודית עתיקה לבין כלים טיפוליים של ימינו, כדי שתראו את עצמכם בבהירות ותדעו לאן להמשיך.</p>
         <div class="cta-row">
           <a class="btn btn-gold btn-call" href="tel:+972533017494"><svg><use href="#i-phone"/></svg> <span>לקביעת שיחת ייעוץ חייגו</span> <span class="phone-num">053-3017494</span></a>
           <a class="btn btn-ghost" href="https://wa.me/972533017494?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%AA%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%99%D7%99%D7%A2%D7%95%D7%A5" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> כתבו לי בוואטסאפ</a>
         </div>
+        <p class="cta-note">מענה אישי · פגישות בקליניקה או בזום</p>
         <div class="verse"><b>״הַכָּרַת פְּנֵיהֶם עָנְתָה בָּם״</b> ישעיהו ג׳, ט׳</div>
       </div>
       <div class="arch">
@@ -323,11 +339,12 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
       <h2>חכמה שעוברת במשפחה, מדור לדור</h2>
       <p class="j">גדלתי בבית שבו התורה, התפילה והחכמה היהודית לא היו נושא ללימוד בלבד. הן היו הדרך שבה חיים. אני <strong>נצר לשושלת רבנים מיוחסת</strong>, ומהם ספגתי את היחס העמוק לנפש האדם, את הענווה ואת האמונה שכל אדם הוא עולם ומלואו.</p>
       <p class="j">מהבית הזה הגעתי לחכמת הפרצוף. עם השנים התברר לי שיש לי יכולת מיוחדת לראות את מה שמעבר לפנים: לזהות את הכוחות שאדם לא יודע שיש בו, את הפצעים שהוא סוחב בשקט, ואת הכיוון שהנשמה שלו מבקשת ללכת אליו.</p>
+      <p class="j">על היכולת הזו הוספתי הכשרות עומק בארץ ובעולם, ובהן <strong>הסמכה מלאה כמטפלת NLP ברמת מאסטר</strong>. כי אינטואיציה לבד היא לא עבודה, והחכמה העתיקה זקוקה גם לכלים מעשיים שעוזרים לעבור מהבנה לשינוי.</p>
       <p class="j">לאורך השנים ליוויתי <strong>אנשים רבים</strong>, נשים וגברים, צעירים ומבוגרים, ברגעים של התלבטות, משבר ושינוי. כל אחד ואחת מהם יצא עם מבט חדש על עצמו, ועם כוח להמשיך בדרך.</p>
       <div class="pillars">
         <div class="pillar"><h3>שושלת רבנים מיוחסת</h3><p>חכמה יהודית שעוברת במשפחה מדור לדור.</p></div>
         <div class="pillar"><h3>דיסקרטיות מלאה</h3><p>כל מה שנאמר במפגש נשאר במפגש.</p></div>
-        <div class="pillar"><h3>יחס אישי</h3><p>כל מפגש מותאם לאדם שיושב מולי.</p></div>
+        <div class="pillar"><h3>NLP מאסטר</h3><p>הסמכה מלאה כמטפלת NLP ברמת מאסטר.</p></div>
       </div>
     </div>
   </div>
@@ -339,7 +356,7 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
     <div class="sec-head rv">
       <span class="eyebrow">איך אני יכולה לעזור לכם</span>
       <h2>סוגי טיפול וליווי מקצועי</h2>
-      <p>כל דרך מתחילה בשיחת ייעוץ, שבה נבין יחד מה מתאים לכם.</p>
+      <p>כל דרך מתחילה בשיחת ייעוץ, שבה נבין יחד מה מתאים לכם. הפגישות מתקיימות בקליניקה או בזום.</p>
     </div>
     <div class="svc">
       <div class="card rv">
@@ -354,6 +371,16 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
       </div>
       <div class="card rv">
         <div class="num">ב</div>
+        <h3>טיפול NLP ברמת מאסטר</h3>
+        <p class="j">טיפול NLP ברמת מאסטר הוא המקום שבו עוברים מלהבין לשנות, עם ארגז כלים מדויק לדפוסים שרצים לכם ברקע.</p>
+        <ul>
+          <li class="j">הפחד שחוזר שוב ושוב</li>
+          <li class="j">הקול הפנימי שמקטין</li>
+          <li class="j">ההחלטה שנתקעת</li>
+        </ul>
+      </div>
+      <div class="card rv">
+        <div class="num">ג</div>
         <h3>ליווי וטיפול אישי</h3>
         <p class="j">ליווי וטיפול אישי הוא תהליך של כמה מפגשים, שמחבר את התובנות מהקריאה לצעדים בחיים עצמם.</p>
         <ul>
@@ -363,7 +390,7 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
         </ul>
       </div>
       <div class="card rv">
-        <div class="num">ג</div>
+        <div class="num">ד</div>
         <h3>קריאה זוגית ומשפחתית</h3>
         <p class="j">קריאה זוגית ומשפחתית עוזרת להבין את האנשים הקרובים אליכם, ואת מה שמחבר ביניכם.</p>
         <ul>
@@ -384,9 +411,31 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
       <h2>מהשיחה הראשונה ועד הדרך שלכם</h2>
     </div>
     <div class="steps-row">
-      <div class="step rv"><div class="dot">1</div><h3>שיחת ייעוץ</h3><p>בשיחת הייעוץ אתם מספרים מה מעסיק אתכם, ויחד אנחנו מחליטים איך נכון להתקדם.</p></div>
+      <div class="step rv"><div class="dot">1</div><h3>שיחת ייעוץ</h3><p>בשיחת הייעוץ אתם מספרים מה מעסיק אתכם, ויחד אנחנו מחליטים איך נכון להתקדם, בקליניקה או בזום.</p></div>
       <div class="step rv"><div class="dot">2</div><h3>מפגש קריאה</h3><p>במפגש הקריאה אני מתבוננת, מקשיבה ומשקפת לכם את מה שכתוב על הפנים.</p></div>
-      <div class="step rv"><div class="dot">3</div><h3>ליווי והמשך דרך</h3><p>בליווי ההמשך אתם יוצאים עם תובנות ברורות, ואם תרצו, ממשיכים יחד בתהליך.</p></div>
+      <div class="step rv"><div class="dot">3</div><h3>ליווי והמשך דרך</h3><p>בליווי ההמשך נכנסים כלי ה-NLP, ואתם יוצאים עם כיוון ברור ועם משהו לעשות איתו כבר מחר.</p></div>
+    </div>
+  </div>
+</section>
+
+<!--
+  ============ המלצות ============
+  ציטוטים אמיתיים של מטופלים, כפי שהופיעו בגרסה 1. השמות והערים בדויים (אנונימיזציה, וזה תקין).
+  לא לגעת בנוסח הציטוטים ולא להוסיף ציטוטים חדשים בלי אישור של רות. הרשת 2x2.
+-->
+<section class="tms-sec">
+  <svg class="tree" aria-hidden="true"><use href="#tree"/></svg>
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="eyebrow">מה אומרים אחרי</span>
+      <h2>אנשים שישבו מולי</h2>
+      <p>ארבעה מתוך הרבה. השמות שונו.</p>
+    </div>
+    <div class="tms">
+      <div class="tm rv"><p class="j">רות שינתה לי את החיים, יש את החיים של לפני ויש של אחרי.</p><cite>דליה<span>רמת גן</span></cite></div>
+      <div class="tm rv"><p class="j">הייתי סקפטית בתחילה, אבל אחרי טיפול אחד עם רות כבר הבנתי שבאמת יש אנשים עם כוחות ושהם פשוט נועדו לטפל באחרים ולעזור להם.</p><cite>רינת<span>ראשון לציון</span></cite></div>
+      <div class="tm rv"><p class="j">מצאתי מטפלת בחסד אחרי שחיפשתי כל כך הרבה שנים.</p><cite>שמעון<span>רחובות</span></cite></div>
+      <div class="tm rv"><p class="j">רות סייעה לי למצוא את הייעוד שלי בחיים ועל זה אני חייבת לה המון. אני ממליצה בחום לכל מי שזקוק להכוונה מסוימת בחייו.</p><cite>רבקה<span>חיפה</span></cite></div>
     </div>
   </div>
 </section>
@@ -401,8 +450,9 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
     <div class="faq-list rv">
       <details><summary>האם צריך להיות דתיים כדי להגיע?</summary><p class="j">לא. המפגש פתוח לכל אדם, מכל רקע ומכל דרך. החכמה שעליה הוא נשען יהודית, אבל היא מדברת אל הנפש של כל אחד ואחת.</p></details>
       <details><summary>מה קורה במפגש קריאת פנים?</summary><p class="j">אנחנו יושבות או יושבים יחד בשקט. אני מתבוננת בתווי הפנים, שואלת מעט ומקשיבה הרבה, ומשקפת לכם את מה שאני רואה, בעדינות ובכבוד.</p></details>
+      <details><summary>הפגישות פרונטליות או בזום?</summary><p class="j">שניהם. בשיחת התיאום נמצא מה שנוח לכם, כולל מועד שמסתדר עם הלו״ז.</p></details>
       <details><summary>האם מה שאגיד יישאר בינינו?</summary><p class="j">כן. דיסקרטיות מלאה היא חלק בלתי נפרד מהעבודה שלי, וכל מה שנאמר במפגש נשאר במפגש.</p></details>
-      <details><summary>האם זה מחליף טיפול רפואי או פסיכולוגי?</summary><p class="j">לא. הליווי שלי הוא ליווי רוחני ורגשי ברוח היהדות, והוא אינו מחליף טיפול רפואי, פסיכולוגי או נפשי. אם אתם נמצאים בטיפול כזה, כדאי להמשיך בו.</p></details>
+      <details><summary>האם זה מחליף טיפול רפואי או פסיכולוגי?</summary><p class="j">לא. קריאת הפנים, טיפול ה-NLP והליווי שלי הם כלים להתפתחות אישית ברוח היהדות, והם אינם מחליפים טיפול רפואי, פסיכולוגי או נפשי. אם אתם נמצאים בטיפול כזה, כדאי להמשיך בו.</p></details>
       <details><summary>איך קובעים מפגש?</summary><p class="j">פשוט מתקשרים אליי למספר 053-3017494 או שולחים הודעה בוואטסאפ, ונקבע יחד שיחת ייעוץ.</p></details>
     </div>
   </div>
@@ -416,7 +466,7 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
     <h2>הגיע הזמן לראות את עצמכם אחרת</h2>
     <p>שיחה אחת יכולה לפתוח לכם דלת שחיפשתם הרבה זמן. לקביעת שיחת ייעוץ חייגו:</p>
     <a class="big-phone phone-num" href="tel:+972533017494">053-3017494</a>
-    <div class="small">אפשר גם לשלוח הודעה בוואטסאפ, ואחזור אליכם בהקדם.</div>
+    <div class="small">פגישות בקליניקה או בזום. אפשר גם לשלוח הודעה בוואטסאפ, ואחזור אליכם בהקדם.</div>
     <div class="cta-row">
       <a class="btn btn-gold" href="tel:+972533017494"><svg><use href="#i-phone"/></svg> חייגו עכשיו</a>
       <a class="btn btn-ghost" href="https://wa.me/972533017494?text=%D7%A9%D7%9C%D7%95%D7%9D%20%D7%A8%D7%95%D7%AA%2C%20%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%95%D7%A2%20%D7%A9%D7%99%D7%97%D7%AA%20%D7%99%D7%99%D7%A2%D7%95%D7%A5" target="_blank" rel="noopener"><svg><use href="#i-wa"/></svg> כתבו לי בוואטסאפ</a>
@@ -426,9 +476,9 @@ footer .disc{max-width:640px;margin:18px auto 0;font-size:13.5px;line-height:1.6
 
 <footer>
   <div class="name">רות אמסלם</div>
-  <div>קריאת פנים · חכמת הפרצוף · ליווי אישי ברוח היהדות</div>
+  <div>קריאת פנים · חכמת הפרצוף · טיפול NLP מאסטר · בקליניקה או בזום</div>
   <div style="margin-top:6px">טלפון לפניות: <a class="phone-num" href="tel:+972533017494">053-3017494</a></div>
-  <p class="disc">המפגשים והליווי הם בתחום הרוחני והרגשי, ואינם מהווים תחליף לייעוץ או לטיפול רפואי, פסיכולוגי או נפשי.</p>
+  <p class="disc">קריאה בחכמת הפרצוף, טיפול NLP והליווי הם כלים להתפתחות אישית, ואינם מהווים תחליף לאבחון, ייעוץ או טיפול רפואי, פסיכולוגי או פסיכיאטרי. כל תהליך הוא אישי, והתוצאות משתנות מאדם לאדם. אין באמור התחייבות לתוצאה כלשהי. במצוקה נפשית מומלץ לפנות לגורם מקצועי מוסמך.</p>
 </footer>
 
 <nav class="mbar" aria-label="יצירת קשר">
